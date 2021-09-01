@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quiz/question.dart';
-import 'package:quiz/quiz_result.dart';
 
-import 'answer.dart';
+import '../widgets/widgets.dart';
+
+import './question_list.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,32 +14,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   var _index = 0;
   int score = 0;
-  final _questions = const [
-    {
-      'question': 'What\´s your favourite food?',
-      'answers': [
-        {'text': 'Vegan', 'value': 10},
-        {'text': 'Vegetarian', 'value': 5},
-        {'text': 'Meat', 'value': 1},
-      ]
-    },
-    {
-      'question': 'What\´s your favourite Place?',
-      'answers': [
-        {'text': 'City', 'value': 1},
-        {'text': 'Forest', 'value': 10},
-        {'text': 'Beach', 'value': 5},
-      ]
-    },
-    {
-      'question': 'What\´s your favourite Pet?',
-      'answers': [
-        {'text': 'Dog', 'value': 10},
-        {'text': 'Cat', 'value': 5},
-        {'text': 'None', 'value': 1},
-      ]
-    }
-  ];
+
+  final _questions = QuestionList.questions;
 
   void _userAnswer({int? value}) {
     score = score + value!;
